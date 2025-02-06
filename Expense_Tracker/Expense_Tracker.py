@@ -2,21 +2,26 @@ import csv
 from ctypes.wintypes import FILETIME
 from datetime import datetime
 
+#file where we store expenses
 File_name = "expense.csv"
 
+#function where we add expenses
 def add_expense():
-    date = datetime.now().strftime("%y-%m-%d")
+    date = datetime.now().strftime("%y-%m-%d") #get today's date
     category = input("Enter expense catgory(food, transport, shopping, etc.):")
     amount = input("Enter the amount(₹):")
 
+    #save to csv file
     with open(File_name, mode="a", newline="") as file:
         writer =csv.writer(file)
         writer.writerow([date, category, amount])
-    print('Expense created successfully')    
+    print('Expense created successfully')  
+
+#test the function      
 add_expense()   
 
 
-
+#cikkkkkkkkkkkkku
 def show_expense():
     try:
         with open(File_name, mode='r') as file:
